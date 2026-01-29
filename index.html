@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="dark">
 
 <head>
@@ -984,7 +984,7 @@
             overflow: hidden;
             position: relative;
             /* Ensure it doesn't collapse */
-            min-height: 600px;
+            min-height: 480px;
             padding: 10px 0;
         }
 
@@ -1163,7 +1163,7 @@
 
                 <!-- Mobile Menu Button -->
                 <button id="mobileMenuBtn"
-                    class="md:hidden w-10 h-10 flex items-center justify-center text-2xl hover:text-primary transition-colors focus:text-primary focus:outline-none"
+                    class="md:hidden w-12 h-12 flex items-center justify-center text-2xl hover:text-primary transition-colors focus:text-primary focus:outline-none z-[60] relative"
                     aria-label="Toggle Navigation Menu" aria-expanded="false">
                     <i class="ri-menu-line"></i>
                     <i class="ri-close-line"></i>
@@ -1440,6 +1440,69 @@
 
                 .carousel-controls {
                     display: none !important;
+                }
+
+                #first-clone,
+                #last-clone {
+                    display: none !important;
+                }
+
+                header.glass {
+                    overflow: visible !important;
+                }
+
+                /* Remove Gloss/Globe effects on mobile */
+                #projects-bg-canvas,
+                #skills-bg-canvas,
+                #project-globe-canvas,
+                #project-globe-canvas-2 {
+                    display: none !important;
+                }
+
+                #globe-container,
+                #globe-container-2 {
+                    display: none !important;
+                }
+
+                .project-card {
+                    justify-content: flex-start !important;
+                    padding-top: 1rem !important;
+                    padding-bottom: 1rem !important;
+                }
+
+                .project-image {
+                    height: 8rem !important;
+                    /* h-32 on mobile */
+                }
+
+                .project-card p {
+                    font-size: 0.825rem !important;
+                    line-height: 1.35 !important;
+                    margin-bottom: 0.75rem !important;
+                }
+
+                .project-card .flex-wrap {
+                    margin-bottom: 0.75rem !important;
+                }
+
+                .project-card h3 {
+                    margin-bottom: 0.25rem !important;
+                }
+
+                .project-card .flex.gap-3 {
+                    gap: 0.5rem !important;
+                    margin-top: 0.5rem !important;
+                }
+
+                /* Contact Section Fixes */
+                #lottieCharacter {
+                    height: 250px !important;
+                    opacity: 1 !important;
+                }
+
+                #contactCard {
+                    opacity: 1 !important;
+                    transform: none !important;
                 }
             }
 
@@ -1781,7 +1844,7 @@
                 const prevBtn = document.getElementById('prevExperienceBtn');
                 const nextBtn = document.getElementById('nextExperienceBtn');
                 const pagination = document.getElementById('experiencePagination');
-                let items = document.querySelectorAll('.carousel-card'); // Use let to update after cloning
+                let items = track.querySelectorAll('.carousel-card'); // Scope to track to avoid choosing cards from other sections
 
                 // --- Infinite Loop Setup ---
                 const setupInfiniteLoop = () => {
@@ -1795,7 +1858,7 @@
                     track.insertBefore(lastClone, items[0]);
 
                     // Update items list
-                    items = document.querySelectorAll('.carousel-card');
+                    items = track.querySelectorAll('.carousel-card');
                 };
 
                 // Initialize Loop
@@ -2004,7 +2067,8 @@
                     <div class="relative z-20 order-2 flex flex-col justify-center h-full">
 
                         <!-- Carousel Container -->
-                        <div class="relative w-full max-w-xl mx-auto lg:mx-0 h-[550px]" id="projects-carousel">
+                        <div class="relative w-full max-w-xl mx-auto lg:mx-0 h-[480px] md:h-[550px]"
+                            id="projects-carousel">
 
                             <!-- Track -->
                             <div class="carousel-track relative w-full h-full" id="projects-track">
@@ -2343,7 +2407,7 @@
 
                     <!-- RIGHT COLUMN: Globe Visualization (Visuals) -->
                     <div
-                        class="relative z-10 order-1 h-[500px] lg:h-full flex items-center justify-center pointer-events-auto">
+                        class="hidden lg:flex relative z-10 order-1 h-full items-center justify-center pointer-events-auto">
                         <div class="w-full h-full relative" id="globe-container">
                             <canvas id="project-globe-canvas"
                                 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] h-[130%]"></canvas>
@@ -3322,7 +3386,7 @@
                                     }, 400);
                                 }
                             });
-                        }, { threshold: 0.3 });
+                        }, { threshold: 0.1 });
 
                         observer.observe(section);
                     });
@@ -3362,8 +3426,22 @@
         </section>
     </main>
 
-    <footer class="bg-secondary py-4">
+    <footer class="bg-secondary py-8">
         <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center gap-6 mb-6 lg:hidden">
+                <a href="https://github.com/bonamtarun" target="_blank"
+                    class="text-gray-400 hover:text-primary transition-all text-2xl" aria-label="GitHub">
+                    <i class="ri-github-fill"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/bonam-tarun-5918b3287/" target="_blank"
+                    class="text-gray-400 hover:text-primary transition-all text-2xl" aria-label="LinkedIn">
+                    <i class="ri-linkedin-fill"></i>
+                </a>
+                <a href="mailto:bonam.tarun@gmail.com" class="text-gray-400 hover:text-primary transition-all text-2xl"
+                    aria-label="Email">
+                    <i class="ri-mail-fill"></i>
+                </a>
+            </div>
             <p class="text-gray-400">&copy; 2026 Bonam Tarun. All rights reserved.</p>
         </div>
     </footer>
@@ -3430,6 +3508,7 @@
         const mobileNav = document.getElementById('mobileNav');
 
         function toggleMobileMenu() {
+            if (!mobileMenuBtn || !mobileNav) return;
             const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
 
             // Toggle button state
@@ -4296,7 +4375,7 @@
                             this.g += (this.targetColor.g - this.g) * 0.05;
                             this.b += (this.targetColor.b - this.b) * 0.05;
 
-                        } else {
+                        } else if (window.innerWidth >= 768) {
                             // --- GLOBE STRUCTURE BEHAVIOR ---
                             // 1. Calculate Target on Rotating Globe (Fibonacci Sphere)
                             const time = Date.now() * 0.0004; // Rotation speed
@@ -4305,7 +4384,6 @@
                             const theta = Math.PI * (1 + Math.sqrt(5)) * idx + time;
 
                             const globeRadius = Math.min(width, height) * 0.22; // Globe Size
-                            const isDesktop = window.innerWidth >= 768;
                             const centerX = width * 0.5; // Always Center for Grid Layout
                             const centerY = height * 0.5; // Center Vertical
 
