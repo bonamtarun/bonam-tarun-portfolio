@@ -1545,6 +1545,41 @@
                     min-width: 33.333%;
                 }
             }
+
+            /* ============================================
+               MOBILE PROJECT STACK FIX
+               ============================================ */
+            @media (max-width: 767px) {
+                #projects-carousel {
+                    height: auto !important;
+                    min-height: auto !important;
+                }
+
+                #projects-track {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                }
+
+                #projects-track .carousel-slide {
+                    position: relative !important;
+                    top: auto !important;
+                    left: auto !important;
+                    width: 100% !important;
+                    height: auto !important;
+                    opacity: 1 !important;
+                    visibility: visible !important;
+                    transform: none !important;
+                    margin-bottom: 0;
+                }
+
+                /* Hide controls on mobile */
+                #projectPrev,
+                #projectNext,
+                .flex.lg\:hidden.justify-center.gap-6.mt-6 {
+                    display: none !important;
+                }
+            }
         </style>
 
 
