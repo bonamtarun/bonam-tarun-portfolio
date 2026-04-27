@@ -9,32 +9,32 @@
      SEO META TAGS - ENHANCED FOR DISCOVERABILITY
      ============================================ -->
     <meta name="description"
-        content="Bonam Tarun | Google Student Ambassador & AI & Data Analyst Portfolio. Specializing in Python, Machine Learning, Data Analytics, Power BI, and Cybersecurity solutions.">
+        content="Bonam Tarun | Google Student Ambassador & Data Analyst & AI-Powered Developer Portfolio. Specializing in Python, Machine Learning, Data Analytics, Power BI, and Cybersecurity solutions.">
     <meta name="keywords"
         content="Bonam Tarun, AI Data Analyst, Machine Learning Engineer, Python Developer, Google Student Ambassador, Data Analytics, Power BI, Cybersecurity, Portfolio, B.Tech CSE">
     <meta name="author" content="Bonam Tarun">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph Tags for Social Media -->
-    <meta property="og:title" content="Bonam Tarun - AI & Data Analyst Portfolio">
+    <meta property="og:title" content="Bonam Tarun - Data Analyst & AI-Powered Developer Portfolio">
     <meta property="og:description"
         content="Google Student Ambassador specializing in AI, Machine Learning, and Data Analytics. Building real-world solutions with Python, Power BI, and cybersecurity tools.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yourdomain.com">
     <meta property="og:image" content="BTLOGO.jpg">
-    <meta property="og:image:alt" content="Bonam Tarun - AI & Data Analyst Portfolio Preview">
+    <meta property="og:image:alt" content="Bonam Tarun - Data Analyst & AI-Powered Developer Portfolio Preview">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bonam Tarun - AI & Data Analyst">
+    <meta name="twitter:title" content="Bonam Tarun - Data Analyst & AI-Powered Developer">
     <meta name="twitter:description"
-        content="Google Student Ambassador | AI & Data Analyst | Python Developer | Machine Learning Enthusiast">
+        content="Google Student Ambassador | Data Analyst & AI-Powered Developer | Python Developer | Machine Learning Enthusiast">
     <meta name="twitter:image" content="BTLOGO.jpg">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://yourdomain.com">
 
-    <title>Bonam Tarun | AI & Data Analyst Portfolio - Google Student Ambassador</title>
+    <title>Bonam Tarun | Data Analyst & AI-Powered Developer Portfolio - Google Student Ambassador</title>
 
     <!-- Preload critical images -->
     <link rel="preload" href="ptfolio.jpg" as="image">
@@ -1122,7 +1122,105 @@
             background: #780606;
             border-radius: 2px;
         }
-    </style>
+    
+        /* ============================================
+           BENTO GRID - PROJECT SECTION
+           ============================================ */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+        @media (max-width: 1024px) { .bento-grid { grid-template-columns: repeat(2,1fr); } }
+        @media (max-width: 640px)  { .bento-grid { grid-template-columns: 1fr; } }
+
+        .bento-card {
+            background: rgba(26,26,26,0.55);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.35s cubic-bezier(.4,0,.2,1),
+                        box-shadow 0.35s ease,
+                        border-color 0.35s ease,
+                        opacity 0.45s ease;
+            opacity: 0;
+            transform: translateY(28px);
+        }
+        .bento-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .bento-card:hover {
+            transform: translateY(-8px) scale(1.015);
+            border-color: rgba(120,6,6,0.55);
+            box-shadow: 0 20px 55px rgba(120,6,6,0.32);
+        }
+        .bento-card.hero { grid-column: span 2; }
+        @media (max-width: 640px) { .bento-card.hero { grid-column: span 1; } }
+
+        .bento-card.hidden-card {
+            opacity: 0 !important;
+            transform: scale(0.92) !important;
+            pointer-events: none;
+            position: absolute;
+            visibility: hidden;
+        }
+        .bento-img-wrap { overflow: hidden; position: relative; flex-shrink: 0; }
+        .bento-img-wrap img { width:100%; height:100%; object-fit:cover; transition:transform 0.55s ease; }
+        .bento-card:hover .bento-img-wrap img { transform:scale(1.07); }
+        .bento-img-overlay {
+            position:absolute; inset:0;
+            background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,0.72) 100%);
+            opacity:0; transition:opacity 0.35s ease;
+            display:flex; align-items:center; justify-content:center;
+        }
+        .bento-card:hover .bento-img-overlay { opacity:1; }
+        .bento-body { padding:1.25rem; flex:1; display:flex; flex-direction:column; }
+        .bento-num {
+            position:absolute; top:-6px; right:14px;
+            font-size:6.5rem; font-weight:900; font-family:monospace;
+            color:rgba(255,255,255,0.07);
+            pointer-events:none; line-height:1; user-select:none;
+            letter-spacing:-4px;
+            transition: color 0.35s ease;
+        }
+        .bento-card:hover .bento-num {
+            color: rgba(120,6,6,0.18);
+        }
+        .bento-title { font-size:1.2rem; font-weight:700; color:#fff; margin-bottom:0.35rem; }
+        .bento-card.hero .bento-title { font-size:1.5rem; }
+        .bento-sub  { font-size:0.8rem; font-style:italic; color:#780606; margin-bottom:0.6rem; }
+        .bento-desc { font-size:0.8rem; color:#9ca3af; line-height:1.6; margin-bottom:0.75rem; flex:1; }
+        .bento-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:0.9rem; }
+        .bento-tag  {
+            padding:3px 10px; border-radius:999px;
+            font-size:0.72rem; font-weight:500;
+            transition:transform 0.25s ease;
+        }
+        .bento-tag:hover { transform:translateY(-3px); }
+        .bento-btns { display:flex; gap:0.6rem; margin-top:auto; }
+        .bento-btn {
+            flex:1; padding:8px 12px; border-radius:10px;
+            font-size:0.8rem; font-weight:600;
+            display:flex; align-items:center; justify-content:center; gap:5px;
+            cursor:pointer; transition:all 0.25s ease; text-decoration:none;
+            border:none; outline:none;
+        }
+        .bento-btn-primary { background:#780606; color:#fff; }
+        .bento-btn-primary:hover { background:#9a0808; box-shadow:0 4px 18px rgba(120,6,6,0.45); }
+        .bento-btn-ghost {
+            background:rgba(255,255,255,0.07); color:#e5e7eb;
+            border:1px solid rgba(255,255,255,0.1);
+        }
+        .bento-btn-ghost:hover { background:#780606; border-color:#780606; color:#fff; }
+        .bento-btn-disabled { background:rgba(100,100,100,0.25); color:#6b7280; cursor:not-allowed; opacity:.65; }
+
+        </style>
 </head>
 
 <body class="bg-secondary text-gray-100 min-h-screen relative overflow-x-hidden">
@@ -1155,7 +1253,7 @@
                     <a href="#skills" class="hover:text-primary transition-colors focus:text-primary">Skills</a>
                     <a href="#contact" class="hover:text-primary transition-colors focus:text-primary">Contact</a>
                     <!-- Download CV Button in Desktop Navigation - Styled like "Get Code" button -->
-                    <!-- <a href="Bonam Tarun.pdf" 
+                    <!-- <a href="B__Tarun.pdf" 
    class="btn-hover bg-white/10 text-white px-4 py-2 rounded-button hover:bg-primary transition-all focus:outline-none focus:ring-2 focus:ring-primary text-sm download-cv-btn">
   <i class="ri-download-line mr-2"></i>Download Resume
 </a> -->
@@ -1194,7 +1292,7 @@
                         class="hover:text-primary transition-colors focus:text-primary py-2 px-3 focus:outline-none rounded hover:bg-white/5"
                         onclick="closeMobileMenu()">Contact</a>
                     <!-- Download CV Button in Mobile Navigation - Styled like "Get Code" button -->
-                    <!-- <a href="Bonam Tarun.pdf" 
+                    <!-- <a href="B__Tarun.pdf" 
    class="btn-hover bg-white/10 text-white px-4 py-3 rounded-button hover:bg-primary transition-all focus:outline-none focus:ring-2 focus:ring-primary text-sm text-center mt-2 mb-2 download-cv-btn"
    onclick="closeMobileMenu()">
   <i class="ri-download-line mr-2"></i>Download Resume
@@ -1218,22 +1316,32 @@
                         <h1 class="text-5xl md:text-7xl font-bold text-white floating">
                             Hi, I'm<br>BONAM TARUN
                         </h1>
-                        <h2 class="text-2xl md:text-3xl font-mono text-white">AI & Data Analyst</h2>
+                        <h2 class="text-2xl md:text-3xl font-mono text-white">Data Analyst & AI-Powered Developer</h2>
                         <p class="text-lg text-gray-300 leading-relaxed">
                             <strong class="text-white">Google Student Ambassador</strong> and
-                            <strong class="text-white">B.Tech Computer Science Engineering student</strong>
-                            with an interest in Artificial Intelligence and Data Analytics. I build practical,
-                            real-world solutions through hands-on projects while continuously developing technical
-                            and leadership skills.
+                            <strong class="text-white">final-year B.Tech Computer Science student</strong>
+                            who turns data into decisions and ideas into working products. I work with
+                            Power BI, SQL, and Python to find insights in data — and I use AI tools
+                            like Claude, ChatGPT, and Gemini with prompt engineering to design, build,
+                            and ship real projects faster. I don't just use technology. I build with it.
                         </p>
 
-                        <!-- View Resume Button (Opens in browser) -->
-                        <div class="flex space-x-4 mt-12 items-center">
-                            <button onclick="window.open('Bonam Tarun.pdf', '_blank'); removeFocusAfterClick();"
+                        <!-- Actions & Status -->
+                        <div class="mt-12 flex flex-wrap items-center gap-6">
+                            <button onclick="window.open('B__Tarun.pdf', '_blank'); removeFocusAfterClick();"
                                 class="download-btn bg-primary text-white px-8 py-3 rounded-button hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-secondary view-resume-btn font-bold">
                                 View Resume
-
                             </button>
+
+                            <!-- Minimal Status Indicator -->
+                            <div class="flex items-center gap-3 text-sm text-gray-400 tracking-wide">
+                                <div class="relative flex items-center justify-center">
+                                    <span
+                                        class="opacity-30 absolute h-3 w-3 rounded-full bg-emerald-500 animate-ping"></span>
+                                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                                </div>
+                                <span>Currently open for new opportunities</span>
+                            </div>
                         </div>
                     </div>
                     <div class="relative flex items-center justify-center" id="hero-3d-container">
@@ -1281,16 +1389,17 @@
                             </h3>
                             <div class="space-y-6 text-gray-300 leading-relaxed text-lg">
                                 <p>
-                                    I am a B.Tech Computer Science Engineering student with a strong interest in
-                                    Artificial Intelligence, Data Analytics, and Web Development. I build practical,
-                                    data-driven solutions through hands-on projects and academic learning.
+                                    I'm a final-year B.Tech Computer Science student with hands-on experience
+                                    in data analytics, web development, and AI-augmented development. I work
+                                    with Power BI, SQL, Python, and Excel to find patterns in data and present
+                                    them as clear, actionable insights.
                                 </p>
                                 <p>
-                                    I have worked on machine learning applications, phishing detection systems,
-                                    analytics dashboards, and AI assistants, focusing on converting data into useful
-                                    insights. Alongside this, I have developed leadership and communication skills as a
-                                    Google Student Ambassador, national event anchor, and technical workshop
-                                    facilitator.
+                                    What sets me apart is how I build. I use AI tools and prompt engineering
+                                    — Claude, ChatGPT, and Gemini — not just to write code faster, but to
+                                    think through problems, design solutions, and ship projects that actually
+                                    work. From a gesture-controlled drawing app to a live phishing detection
+                                    tool, everything I build is real, deployed, and purposeful.
                                 </p>
                             </div>
 
@@ -1316,7 +1425,12 @@
                             <div class="flex-1 flex flex-col justify-center space-y-4 relative z-10">
                                 <div>
                                     <h4 class="text-lg font-bold text-white">Aditya Engineering College</h4>
-                                    <p class="text-primary text-sm font-semibold mb-1">2022 - 2026</p>
+                                    <div class="flex items-center justify-between mb-2 mt-1">
+                                        <p class="text-primary text-sm font-semibold">2022 - 2026</p>
+                                        <div
+                                            class="text-gray-300 text-xs font-bold leading-none bg-white/10 border border-white/10 px-2.5 py-1 rounded">
+                                            CGPA: 7.86 / 10</div>
+                                    </div>
                                     <p class="text-gray-400 text-base">B.Tech in Computer Science & Engineering</p>
                                 </div>
                             </div>
@@ -1355,7 +1469,7 @@
                                     <i class="ri-folder-open-line"></i>
                                 </div>
 
-                                <h4 class="text-5xl font-bold text-white mb-1 relative z-10">5</h4>
+                                <h4 class="text-5xl font-bold text-white mb-1 relative z-10">8</h4>
                                 <p class="text-sm text-primary uppercase tracking-wider font-extrabold relative z-10">
                                     Projects</p>
                             </div>
@@ -2082,378 +2196,248 @@
         </script>
 
 
-        <!-- ============================================
-     PROJECTS SECTION WITH LAZY LOADING
-     ============================================ -->
-
-        <section id="projects" class="py-20 bg-secondary relative overflow-hidden border-t border-white/5">
-            <!-- Projects Textured Background Canvas -->
+                <!-- ============================================
+             PROJECTS SECTION - BENTO GRID
+             ============================================ -->
+        <section id="projects" class="py-20 bg-secondary relative border-t border-white/5 overflow-hidden">
             <canvas id="projects-bg-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
-            <div class="container mx-auto px-6 relative z-10 h-full">
-                <!-- Fixed: Added padding-bottom to prevent text clipping -->
-                <h2 class="text-5xl font-bold mb-2 gradient-text hidden-heading pb-4">Featured Projects</h2>
 
-
-
-                <!-- Original Grid Layout (Restored) -->
-                <div class="grid md:grid-cols-2 gap-12 h-auto py-10 items-center">
-
-                    <!-- LEFT COLUMN: Project Carousel (Content) -->
-                    <div class="relative z-20 order-2 flex flex-col justify-center h-full">
-
-                        <!-- Carousel Container -->
-                        <div class="relative w-full max-w-xl mx-auto lg:mx-0 h-[480px] md:h-[550px]"
-                            id="projects-carousel">
-
-                            <!-- Track -->
-                            <div class="carousel-track relative w-full h-full" id="projects-track">
-
-                                <!-- Slide 1: Phishing URL Detector -->
-                                <div class="carousel-slide absolute top-0 left-0 w-full h-full transition-all duration-700 ease-out opacity-0 translate-y-8 invisible"
-                                    data-index="0" data-type="security" data-icon="ri-search-line">
-                                    <div
-                                        class="project-card glass p-6 rounded-lg h-full flex flex-col justify-center relative overflow-hidden">
-                                        <!-- Watermark Number -->
-                                        <div
-                                            class="absolute -top-4 -right-4 text-9xl font-bold text-white/5 select-none pointer-events-none font-mono">
-                                            01</div>
-
-                                        <div class="relative overflow-hidden rounded-lg mb-6 shrink-0 z-10">
-                                            <img src="phishingurldetector.jpg"
-                                                class="project-image w-5/6 mx-auto h-48 object-cover"
-                                                alt="Phishing URL Detector">
-                                            <div class="project-overlay">
-                                                <i class="ri-search-line text-white text-5xl"></i>
-                                            </div>
-                                        </div>
-                                        <h3 class="text-2xl font-bold mb-2 relative z-10">Phishing URL Detector</h3>
-                                        <p class="text-primary italic mb-4 text-sm relative z-10">Real-time malicious
-                                            link detection
-                                        </p>
-                                        <p class="text-gray-300 mb-6 text-sm leading-relaxed relative z-10">
-                                            <strong>Problem:</strong> Users find it difficult to identify malicious
-                                            links instantly.<br>
-                                            <strong>Approach:</strong> Built a Python-based backend system to analyze
-                                            URL patterns and detect potentially malicious links in real time.<br>
-                                            <strong>Result:</strong> Enabled real-time identification of potentially
-                                            malicious URLs, improving user awareness and online safety.
-                                        </p>
-                                        <div class="flex flex-wrap gap-2 mb-6 mt-auto relative z-10">
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-blue-500/20 text-blue-500 rounded-full text-sm">Python</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-red-500/20 text-red-500 rounded-full text-sm">HTML</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-yellow-500/20 text-yellow-500 rounded-full text-sm">CSS</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-sm">JavaScript</span>
-                                        </div>
-                                        <div class="flex space-x-4 relative z-10">
-                                            <button
-                                                onclick="handleViewProject('https://url-guardian.onrender.com', 'Phishing URL Detector')"
-                                                class="btn-hover bg-primary text-white px-6 py-2 rounded-button hover:bg-opacity-90 transition-all focus:outline-none focus:ring-2 focus:ring-primary flex-1">
-                                                <i class="ri-external-link-line mr-2"></i>Live Demo
-                                            </button>
-                                            <a href="https://github.com/bonamtarun/phishing-URL-detector.git"
-                                                target="_blank" class="flex-1">
-                                                <button
-                                                    class="btn-hover bg-white/10 text-white px-6 py-2 rounded-button hover:bg-primary transition-all focus:outline-none focus:ring-2 focus:ring-primary w-full">
-                                                    <i class="ri-github-fill mr-2"></i>Source Code
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Slide 2: Smart AI Mate -->
-                                <div class="carousel-slide absolute top-0 left-0 w-full h-full transition-all duration-700 ease-out opacity-0 translate-y-8 invisible"
-                                    data-index="1" data-type="ai" data-icon="ri-mic-line">
-                                    <div
-                                        class="project-card glass p-6 rounded-lg h-full flex flex-col justify-center relative overflow-hidden">
-                                        <!-- Watermark Number -->
-                                        <div
-                                            class="absolute -top-4 -right-4 text-9xl font-bold text-white/5 select-none pointer-events-none font-mono">
-                                            02</div>
-
-                                        <div class="relative overflow-hidden rounded-lg mb-6 shrink-0 z-10">
-                                            <img src="smart ai mate.jpg"
-                                                class="project-image w-5/6 mx-auto h-48 object-cover"
-                                                alt="Smart AI Mate">
-                                            <div class="project-overlay">
-                                                <i class="ri-mic-line text-white text-5xl"></i>
-                                            </div>
-                                        </div>
-                                        <h3 class="text-2xl font-bold mb-2 relative z-10">SMART AI MATE</h3>
-                                        <p class="text-primary italic mb-4 text-sm relative z-10">Voice-activated
-                                            personal AI
-                                            assistant</p>
-                                        <p class="text-gray-300 mb-6 text-sm leading-relaxed relative z-10">
-                                            <strong>Problem:</strong> Need for a hands-free assistant to automate
-                                            everyday tasks.<br>
-                                            <strong>Approach:</strong> Built a Python-based voice interaction system
-                                            using speech recognition and basic AI techniques.<br>
-                                            <strong>Result:</strong> Created a responsive voice assistant that executes
-                                            commands and provides real-time responses.
-                                        </p>
-                                        <div class="flex flex-wrap gap-2 mb-6 mt-auto relative z-10">
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-emerald-500/20 text-emerald-500 rounded-full text-sm">Python</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-yellow-500/20 text-yellow-500 rounded-full text-sm">ML</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-red-400/20 text-red-400 rounded-full text-sm">HTML</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-blue-400/20 text-blue-400 rounded-full text-sm">JavaScript</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-pink-400/20 text-pink-400 rounded-full text-sm">Speech
-                                                Recognition</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-purple-400/20 text-purple-400 rounded-full text-sm">
-                                                Basic AI</span>
-                                        </div>
-                                        <div class="flex space-x-4 relative z-10">
-                                            <button
-                                                onclick="handleViewProject('https://ai-voice-assistant-theta.vercel.app', 'Smart AI Mate')"
-                                                class="btn-hover bg-primary text-white px-6 py-2 rounded-button hover:bg-opacity-90 transition-all focus:outline-none focus:ring-2 focus:ring-primary flex-1">
-                                                <i class="ri-external-link-line mr-2"></i>Live Demo
-                                            </button>
-                                            <a href="https://github.com/bonamtarun/AI-voice-assistant.git"
-                                                target="_blank" class="flex-1">
-                                                <button
-                                                    class="btn-hover bg-white/10 text-white px-6 py-2 rounded-button hover:bg-primary transition-all focus:outline-none focus:ring-2 focus:ring-primary w-full">
-                                                    <i class="ri-github-fill mr-2"></i>Source Code
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Slide 3: Flipkart Sales Analytics -->
-                                <div class="carousel-slide absolute top-0 left-0 w-full h-full transition-all duration-700 ease-out opacity-0 translate-y-8 invisible"
-                                    data-index="2" data-type="data" data-icon="ri-bar-chart-2-line">
-                                    <div
-                                        class="project-card glass p-6 rounded-lg h-full flex flex-col justify-center relative overflow-hidden">
-                                        <!-- Watermark Number -->
-                                        <div
-                                            class="absolute -top-4 -right-4 text-9xl font-bold text-white/5 select-none pointer-events-none font-mono">
-                                            03</div>
-
-                                        <div class="relative overflow-hidden rounded-lg mb-6 shrink-0 z-10">
-                                            <img src="powerbi.jpg" class="project-image w-5/6 mx-auto h-48 object-cover"
-                                                alt="Sales Analytics">
-                                            <div class="project-overlay">
-                                                <i class="ri-bar-chart-2-line text-white text-5xl"></i>
-                                            </div>
-                                        </div>
-                                        <h3 class="text-2xl font-bold mb-2 relative z-10">Flipkart Sales Analytics</h3>
-                                        <p class="text-primary italic mb-4 text-sm relative z-10">Interactive Power BI
-                                            Dashboard</p>
-                                        <p class="text-gray-300 mb-6 text-sm leading-relaxed relative z-10">
-                                            <strong>Problem:</strong> Identifying trends and top-performing categories
-                                            from large sales datasets.<br>
-                                            <strong>Approach:</strong> Created an interactive Power BI dashboard using
-                                            cleaned data and Excel pivot tables.<br>
-                                            <strong>Result:</strong> Provided clear insights into category performance
-                                            and payment methods.
-                                        </p>
-                                        <div class="flex flex-wrap gap-2 mb-6 mt-auto relative z-10">
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-yellow-500/20 text-yellow-500 rounded-full text-sm">Power
-                                                BI</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-emerald-500/20 text-emerald-500 rounded-full text-sm">Excel
-                                                (Pivot)</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-blue-500/20 text-blue-500 rounded-full text-sm">Data
-                                                Analysis</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-purple-400/20 text-purple-400 rounded-full text-sm">Data
-                                                Visualization</span>
-                                        </div>
-                                        <div class="flex space-x-4 relative z-10">
-                                            <button
-                                                onclick="handleViewProject('https://app.powerbi.com/groups/me/reports/b241a48c-3651-4aab-9f0f-bf9fff729e81/5d74a44c09e528d4a007?experience=power-bi', 'Flipkart Sales Analytics')"
-                                                class="btn-hover bg-primary text-white px-6 py-2 rounded-button hover:bg-opacity-90 transition-all focus:outline-none focus:ring-2 focus:ring-primary flex-1">
-                                                <i class="ri-external-link-line mr-2"></i>Live Demo
-                                            </button>
-                                            <a href="https://github.com/bonamtarun/power-bi-dashboard-.git"
-                                                target="_blank" class="flex-1">
-                                                <button
-                                                    class="btn-hover bg-white/10 text-white px-6 py-2 rounded-button hover:bg-primary transition-all focus:outline-none focus:ring-2 focus:ring-primary w-full">
-                                                    <i class="ri-github-fill mr-2"></i>Source Code
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Slide 4: Vulnerability Scanner -->
-                                <div class="carousel-slide absolute top-0 left-0 w-full h-full transition-all duration-700 ease-out opacity-0 translate-y-8 invisible"
-                                    data-index="3" data-type="security" data-icon="ri-shield-keyhole-line">
-                                    <div
-                                        class="project-card glass p-6 rounded-lg h-full flex flex-col justify-center relative overflow-hidden">
-                                        <!-- Watermark Number -->
-                                        <div
-                                            class="absolute -top-4 -right-4 text-9xl font-bold text-white/5 select-none pointer-events-none font-mono">
-                                            04</div>
-
-                                        <div class="relative overflow-hidden rounded-lg mb-6 shrink-0 z-10">
-                                            <img src="vim2.png" class="project-image w-5/6 mx-auto h-48 object-cover"
-                                                alt="Vulnerability Scanner">
-                                            <div class="project-overlay">
-                                                <i class="ri-shield-keyhole-line text-white text-5xl"></i>
-                                            </div>
-                                        </div>
-                                        <h3 class="text-2xl font-bold mb-2 relative z-10">Vulnerability Scanner</h3>
-                                        <p class="text-primary italic mb-4 text-sm relative z-10">ML-powered security
-                                            tool</p>
-                                        <p class="text-gray-300 mb-6 text-sm leading-relaxed relative z-10">
-                                            <strong>Problem:</strong> Identifying vulnerabilities such as SQL injection
-                                            in source code.<br>
-                                            <strong>Approach:</strong> Built a machine learning–based scanner to analyze
-                                            code patterns and detect potential security risks.<br>
-                                            <strong>Result:</strong> Flagged vulnerable code segments to support early
-                                            mitigation and improved application security.
-                                        </p>
-                                        <div class="flex flex-wrap gap-2 mb-6 mt-auto relative z-10">
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-emerald-500/20 text-emerald-500 rounded-full text-sm">Python</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-yellow-500/20 text-yellow-500 rounded-full text-sm">ML</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-red-400/20 text-red-400 rounded-full text-sm">HTML</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-blue-400/20 text-blue-400 rounded-full text-sm">CSS</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-purple-400/20 text-purple-400 rounded-full text-sm">Secure
-                                                Coding</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-orange-400/20 text-orange-400 rounded-full text-sm">Static
-                                                Analysis</span>
-                                        </div>
-                                        <div class="flex space-x-4 relative z-10">
-                                            <button
-                                                onclick="handleViewProject('https://vulnerability-scanner-i42o.onrender.com/', 'Vulnerability Scanner')"
-                                                class="btn-hover bg-primary text-white px-6 py-2 rounded-button hover:bg-opacity-90 transition-all focus:outline-none focus:ring-2 focus:ring-primary flex-1">
-                                                <i class="ri-external-link-line mr-2"></i>Live Demo
-                                            </button>
-                                            <a href="#" target="_blank" class="flex-1">
-                                                <button
-                                                    class="btn-hover bg-white/10 text-white px-6 py-2 rounded-button hover:bg-primary transition-all focus:outline-none focus:ring-2 focus:ring-primary w-full">
-                                                    <i class="ri-github-fill mr-2"></i>Source Code
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Slide 5: Driver Drowsiness Detection -->
-                                <div class="carousel-slide absolute top-0 left-0 w-full h-full transition-all duration-700 ease-out opacity-0 translate-y-8 invisible"
-                                    data-index="4" data-type="iot" data-icon="ri-cpu-line">
-                                    <div
-                                        class="project-card glass p-6 rounded-lg h-full flex flex-col justify-center relative overflow-hidden">
-                                        <!-- Watermark Number -->
-                                        <div
-                                            class="absolute -top-4 -right-4 text-9xl font-bold text-white/5 select-none pointer-events-none font-mono">
-                                            05</div>
-
-                                        <div class="relative overflow-hidden rounded-lg mb-6 shrink-0 z-10">
-                                            <img src="iot.png" class="project-image w-5/6 mx-auto h-48 object-cover"
-                                                alt="Driver Drowsiness Detection">
-                                            <div class="project-overlay">
-                                                <i class="ri-cpu-line text-white text-5xl"></i>
-                                            </div>
-                                        </div>
-                                        <h3 class="text-2xl font-bold mb-2 relative z-10">Driver Drowsiness Detection
-                                        </h3>
-                                        <p class="text-primary italic mb-4 text-sm relative z-10">IoT-based real-time
-                                            safety system</p>
-                                        <p class="text-gray-300 mb-6 text-sm leading-relaxed relative z-10">
-                                            <strong>Problem:</strong> Driver drowsiness leads to reduced alertness and
-                                            increases accident risk.<br>
-                                            <strong>Approach:</strong> Developed a real-time monitoring system using
-                                            Python, OpenCV, and MediaPipe to track eye activity, integrated with Arduino
-                                            to trigger alerts.<br>
-                                            <strong>Result:</strong> Detected eye closure or inactivity and activated
-                                            audio and motor alerts in real time to improve driver safety.
-                                        </p>
-                                        <div class="flex flex-wrap gap-2 mb-6 mt-auto relative z-10">
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-emerald-400/20 text-emerald-400 rounded-full text-sm">Python</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-blue-400/20 text-blue-400 rounded-full text-sm">OpenCV</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-orange-400/20 text-orange-400 rounded-full text-sm">MediaPipe</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-cyan-400/20 text-cyan-400 rounded-full text-sm">Arduino</span>
-                                            <span
-                                                class="tech-tag px-3 py-1 bg-purple-400/20 text-purple-400 rounded-full text-sm">IoT</span>
-                                        </div>
-                                        <div class="flex space-x-4 relative z-10">
-                                            <!-- <button onclick="handleViewProject('#', 'Driver Drowsiness Detection')"
-                                                class="btn-hover bg-primary text-white px-6 py-2 rounded-button hover:bg-opacity-90 transition-all focus:outline-none focus:ring-2 focus:ring-primary flex-1">
-                                                <i class="ri-external-link-line mr-2"></i>Live Demo
-                                            </button> -->
-                                            <a href="https://github.com/bonamtarun/-Drowsiness-Detection-System"
-                                                target="_blank" class="flex-1">
-                                                <button
-                                                    class="btn-hover bg-white/10 text-white px-6 py-2 rounded-button hover:bg-primary transition-all focus:outline-none focus:ring-2 focus:ring-primary w-full">
-                                                    <i class="ri-github-fill mr-2"></i>Source Code
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <!-- Side Navigation Controls -->
-                            <button id="projectPrev"
-                                class="absolute top-1/2 -left-16 transform -translate-y-1/2 w-12 h-12 rounded-full border border-white/10 hover:border-primary/50 flex items-center justify-center hover:bg-white/5 text-white transition-all group z-30 hidden lg:flex"
-                                aria-label="Previous Project">
-                                <i
-                                    class="ri-arrow-left-line text-2xl group-hover:-translate-x-1 transition-transform"></i>
-                            </button>
-                            <button id="projectNext"
-                                class="absolute top-1/2 -right-16 transform -translate-y-1/2 w-12 h-12 rounded-full border border-white/10 hover:border-primary/50 flex items-center justify-center hover:bg-white/5 text-white transition-all group z-30 hidden lg:flex"
-                                aria-label="Next Project">
-                                <i
-                                    class="ri-arrow-right-line text-2xl group-hover:translate-x-1 transition-transform"></i>
-                            </button>
-
-                            <!-- Mobile Navigation (Bottom) -->
-                            <div class="flex lg:hidden justify-center gap-6 mt-6">
-                                <button onclick="document.getElementById('projectPrev').click()"
-                                    class="w-12 h-12 rounded-full border border-white/10 hover:border-primary/50 flex items-center justify-center hover:bg-white/5 text-white transition-all">
-                                    <i class="ri-arrow-left-line"></i>
-                                </button>
-                                <button onclick="document.getElementById('projectNext').click()"
-                                    class="w-12 h-12 rounded-full border border-white/10 hover:border-primary/50 flex items-center justify-center hover:bg-white/5 text-white transition-all">
-                                    <i class="ri-arrow-right-line"></i>
-                                </button>
-                            </div>
-
-                            <!-- Pagination Dots -->
-                            <div id="featuredProjectsPagination"
-                                class="flex justify-center space-x-2 mt-8 z-30 relative">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- RIGHT COLUMN: Globe Visualization (Visuals) -->
-                    <div
-                        class="hidden lg:flex relative z-10 order-1 h-full items-center justify-center pointer-events-auto">
-                        <div class="w-full h-full relative" id="globe-container">
-                            <canvas id="project-globe-canvas"
-                                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] h-[130%]"></canvas>
-                        </div>
+            <div class="container mx-auto px-6 relative z-10">
+                <!-- Heading row -->
+                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+                    <div>
+                        <h2 class="text-5xl font-bold gradient-text hidden-heading pb-2">Featured Projects</h2>
+                        <p class="text-gray-400 text-sm mt-2">8 projects across AI, Security, Data &amp; IoT</p>
                     </div>
                 </div>
+
+                <!-- Bento Grid -->
+                <div class="bento-grid" id="bento-grid">
+
+                    <!-- 01 HERO: Phishing URL Detector -->
+                    <div class="bento-card hero" data-cat="security">
+                        <div class="bento-num">01</div>
+                        <div class="bento-img-wrap" style="height:220px;">
+                            <img src="phishingurldetector.jpg" alt="Phishing URL Detector" loading="lazy">
+                            <div class="bento-img-overlay"><i class="ri-search-line text-white text-4xl"></i></div>
+                        </div>
+                        <div class="bento-body">
+                            <div class="bento-title">Phishing URL Detector</div>
+                            <div class="bento-sub">Real-time malicious link detection</div>
+                            <p class="bento-desc"><strong>Problem:</strong> Users struggle to identify malicious links instantly.<br><strong>Result:</strong> Python + ML backend analyses URL patterns and flags threats in real time.</p>
+                            <div class="bento-tags">
+                                <span class="bento-tag" style="background:rgba(59,130,246,.15);color:#60a5fa;">Python</span>
+                                <span class="bento-tag" style="background:rgba(234,179,8,.15);color:#facc15;">ML</span>
+                                <span class="bento-tag" style="background:rgba(239,68,68,.15);color:#f87171;">HTML</span>
+                                <span class="bento-tag" style="background:rgba(74,222,128,.15);color:#4ade80;">JavaScript</span>
+                            </div>
+                            <div class="bento-btns">
+                                <button class="bento-btn bento-btn-primary" onclick="handleViewProject('https://url-guardian.onrender.com','Phishing URL Detector')"><i class="ri-external-link-line"></i>Live Demo</button>
+                                <a href="https://github.com/bonamtarun/phishing-URL-detector.git" target="_blank" class="bento-btn bento-btn-ghost"><i class="ri-github-fill"></i>GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 02: Smart AI Mate -->
+                    <div class="bento-card" data-cat="ai">
+                        <div class="bento-num">02</div>
+                        <div class="bento-img-wrap" style="height:170px;">
+                            <img src="smart ai mate.jpg" alt="Smart AI Mate" loading="lazy">
+                            <div class="bento-img-overlay"><i class="ri-mic-line text-white text-4xl"></i></div>
+                        </div>
+                        <div class="bento-body">
+                            <div class="bento-title">Smart AI Mate</div>
+                            <div class="bento-sub">Voice-activated personal AI assistant</div>
+                            <p class="bento-desc">Speech-recognition Python system that executes hands-free commands and provides real-time responses.</p>
+                            <div class="bento-tags">
+                                <span class="bento-tag" style="background:rgba(52,211,153,.15);color:#34d399;">Python</span>
+                                <span class="bento-tag" style="background:rgba(234,179,8,.15);color:#facc15;">ML</span>
+                                <span class="bento-tag" style="background:rgba(251,146,60,.15);color:#fb923c;">Speech API</span>
+                            </div>
+                            <div class="bento-btns">
+                                <button class="bento-btn bento-btn-primary" onclick="handleViewProject('https://ai-voice-assistant-theta.vercel.app','Smart AI Mate')"><i class="ri-external-link-line"></i>Live Demo</button>
+                                <a href="https://github.com/bonamtarun/AI-voice-assistant.git" target="_blank" class="bento-btn bento-btn-ghost"><i class="ri-github-fill"></i>GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 03: Flipkart Analytics -->
+                    <div class="bento-card" data-cat="data">
+                        <div class="bento-num">03</div>
+                        <div class="bento-img-wrap" style="height:170px;">
+                            <img src="powerbi.jpg" alt="Flipkart Sales Analytics" loading="lazy">
+                            <div class="bento-img-overlay"><i class="ri-bar-chart-2-line text-white text-4xl"></i></div>
+                        </div>
+                        <div class="bento-body">
+                            <div class="bento-title">Flipkart Sales Analytics</div>
+                            <div class="bento-sub">Interactive Power BI Dashboard</div>
+                            <p class="bento-desc">Power BI + Excel pivot tables revealing category performance and payment trends from large datasets.</p>
+                            <div class="bento-tags">
+                                <span class="bento-tag" style="background:rgba(234,179,8,.15);color:#facc15;">Power BI</span>
+                                <span class="bento-tag" style="background:rgba(52,211,153,.15);color:#34d399;">Excel</span>
+                                <span class="bento-tag" style="background:rgba(59,130,246,.15);color:#60a5fa;">Data Analysis</span>
+                            </div>
+                            <div class="bento-btns">
+                                <button class="bento-btn bento-btn-primary" onclick="handleViewProject('https://app.powerbi.com/groups/me/reports/b241a48c-3651-4aab-9f0f-bf9fff729e81/5d74a44c09e528d4a007?experience=power-bi','Flipkart Sales Analytics')"><i class="ri-external-link-line"></i>Live Demo</button>
+                                <a href="https://github.com/bonamtarun/power-bi-dashboard-.git" target="_blank" class="bento-btn bento-btn-ghost"><i class="ri-github-fill"></i>GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 04: Vulnerability Scanner -->
+                    <div class="bento-card" data-cat="security">
+                        <div class="bento-num">04</div>
+                        <div class="bento-img-wrap" style="height:170px;">
+                            <img src="vim2.png" alt="Vulnerability Scanner" loading="lazy">
+                            <div class="bento-img-overlay"><i class="ri-shield-keyhole-line text-white text-4xl"></i></div>
+                        </div>
+                        <div class="bento-body">
+                            <div class="bento-title">Vulnerability Scanner</div>
+                            <div class="bento-sub">ML-powered security tool</div>
+                            <p class="bento-desc">ML-based scanner detects SQL injection and risky code patterns, flagging them for early mitigation.</p>
+                            <div class="bento-tags">
+                                <span class="bento-tag" style="background:rgba(52,211,153,.15);color:#34d399;">Python</span>
+                                <span class="bento-tag" style="background:rgba(234,179,8,.15);color:#facc15;">ML</span>
+                                <span class="bento-tag" style="background:rgba(251,146,60,.15);color:#fb923c;">Static Analysis</span>
+                            </div>
+                            <div class="bento-btns">
+                                <button class="bento-btn bento-btn-primary" onclick="handleViewProject('https://vulnerability-scanner-i42o.onrender.com/','Vulnerability Scanner')"><i class="ri-external-link-line"></i>Live Demo</button>
+                                <a href="#" class="bento-btn bento-btn-ghost"><i class="ri-github-fill"></i>GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 05: Driver Drowsiness -->
+                    <div class="bento-card" data-cat="iot">
+                        <div class="bento-num">05</div>
+                        <div class="bento-img-wrap" style="height:170px;">
+                            <img src="iot.png" alt="Driver Drowsiness Detection" loading="lazy">
+                            <div class="bento-img-overlay"><i class="ri-cpu-line text-white text-4xl"></i></div>
+                        </div>
+                        <div class="bento-body">
+                            <div class="bento-title">Driver Drowsiness Detection</div>
+                            <div class="bento-sub">IoT-based real-time safety system</div>
+                            <p class="bento-desc">Python + OpenCV + MediaPipe monitors eye activity; Arduino triggers audio and motor alerts in real time.</p>
+                            <div class="bento-tags">
+                                <span class="bento-tag" style="background:rgba(52,211,153,.15);color:#34d399;">Python</span>
+                                <span class="bento-tag" style="background:rgba(59,130,246,.15);color:#60a5fa;">OpenCV</span>
+                                <span class="bento-tag" style="background:rgba(251,146,60,.15);color:#fb923c;">MediaPipe</span>
+                                <span class="bento-tag" style="background:rgba(6,182,212,.15);color:#22d3ee;">Arduino</span>
+                            </div>
+                            <div class="bento-btns">
+                                <a href="https://github.com/bonamtarun/-Drowsiness-Detection-System" target="_blank" class="bento-btn bento-btn-ghost" style="flex:1"><i class="ri-github-fill"></i>View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 06 HERO: StockIQ -->
+                    <div class="bento-card hero" data-cat="data">
+                        <div class="bento-num">06</div>
+                        <div class="bento-img-wrap" style="height:220px;">
+                            <img src="stockiq_mockup.png" alt="StockIQ Analytics" loading="lazy">
+                            <div class="bento-img-overlay"><i class="ri-stock-line text-white text-4xl"></i></div>
+                        </div>
+                        <div class="bento-body">
+                            <div class="bento-title">StockIQ — Stock Market Analytics</div>
+                            <div class="bento-sub">Big Data Analytics &amp; Profitability Prediction</div>
+                            <p class="bento-desc"><strong>Problem:</strong> Traditional forecasting methods lack real accuracy.<br><strong>Result:</strong> XGBoost + LSTM on RSI/MACD/Bollinger data achieves 80%+ accuracy. FastAPI backend + Power BI dashboard for data-driven investment decisions.</p>
+                            <div class="bento-tags">
+                                <span class="bento-tag" style="background:rgba(234,179,8,.15);color:#facc15;">Python</span>
+                                <span class="bento-tag" style="background:rgba(52,211,153,.15);color:#34d399;">XGBoost / LSTM</span>
+                                <span class="bento-tag" style="background:rgba(59,130,246,.15);color:#60a5fa;">Power BI</span>
+                                <span class="bento-tag" style="background:rgba(168,85,247,.15);color:#c084fc;">FastAPI</span>
+                                <span class="bento-tag" style="background:rgba(6,182,212,.15);color:#22d3ee;">MySQL</span>
+                            </div>
+                            <div class="bento-btns">
+                                <button class="bento-btn bento-btn-primary" onclick="handleViewProject('https://stock-market-prediction-git-main-utia-369s-projects.vercel.app/','StockIQ')"><i class="ri-external-link-line"></i>Live Demo</button>
+                                <a href="#" class="bento-btn bento-btn-ghost"><i class="ri-github-fill"></i>GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 07: NeonAir Pro -->
+                    <div class="bento-card" data-cat="ai">
+                        <div class="bento-num">07</div>
+                        <div class="bento-img-wrap" style="height:170px;">
+                            <img src="neonair_pro_mockup.png" alt="NeonAir Pro" loading="lazy">
+                            <div class="bento-img-overlay"><i class="ri-hand-coin-line text-white text-4xl"></i></div>
+                        </div>
+                        <div class="bento-body">
+                            <div class="bento-title">NeonAir Pro</div>
+                            <div class="bento-sub">Gesture Drawing Application</div>
+                            <p class="bento-desc">MediaPipe AI tracks webcam hand gestures — Draw, Move, Erase, Pause — mapped to canvas with AR overlay &amp; PNG export.</p>
+                            <div class="bento-tags">
+                                <span class="bento-tag" style="background:rgba(251,146,60,.15);color:#fb923c;">MediaPipe AI</span>
+                                <span class="bento-tag" style="background:rgba(239,68,68,.15);color:#f87171;">HTML5 Canvas</span>
+                                <span class="bento-tag" style="background:rgba(234,179,8,.15);color:#facc15;">Vanilla JS</span>
+                            </div>
+                            <div class="bento-btns">
+                                <button class="bento-btn bento-btn-disabled" disabled><i class="ri-time-line"></i>Yet to Deploy</button>
+                                <a href="https://github.com/bonamtarun/neonair-pro" target="_blank" class="bento-btn bento-btn-ghost"><i class="ri-github-fill"></i>GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 08: AURA -->
+                    <div class="bento-card" data-cat="game">
+                        <div class="bento-num">08</div>
+                        <div class="bento-img-wrap" style="height:170px;">
+                            <img src="aura_mockup.png" alt="AURA Gesture Combat Game" loading="lazy">
+                            <div class="bento-img-overlay"><i class="ri-sword-line text-white text-4xl"></i></div>
+                        </div>
+                        <div class="bento-body">
+                            <div class="bento-title">AURA — Gesture Combat</div>
+                            <div class="bento-sub">AI-powered Gesture Combat Game</div>
+                            <p class="bento-desc">MediaPipe PoseLandmarker + Three.js 3D effects + Web Audio SFX — 2-player real-time browser combat on live webcam.</p>
+                            <div class="bento-tags">
+                                <span class="bento-tag" style="background:rgba(251,146,60,.15);color:#fb923c;">MediaPipe AI</span>
+                                <span class="bento-tag" style="background:rgba(168,85,247,.15);color:#c084fc;">Three.js</span>
+                                <span class="bento-tag" style="background:rgba(6,182,212,.15);color:#22d3ee;">Web Audio API</span>
+                            </div>
+                            <div class="bento-btns">
+                                <button class="bento-btn bento-btn-disabled" disabled><i class="ri-time-line"></i>Yet to Deploy</button>
+                                <a href="https://github.com/bonamtarun/gesture-combat-game" target="_blank" class="bento-btn bento-btn-ghost"><i class="ri-github-fill"></i>GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- end bento-grid -->
+
+                <!-- empty state -->
+                <div id="bento-empty" class="hidden text-center py-16">
+                    <i class="ri-inbox-line text-5xl text-gray-600 mb-4 block"></i>
+                    <p class="text-gray-500">No projects in this category yet.</p>
+                </div>
+
             </div>
         </section>
 
+        <script>
+        (function () {
+            const grid  = document.getElementById('bento-grid');
+            if (!grid) return;
+            const cards = Array.from(grid.querySelectorAll('.bento-card'));
 
-        <template id="more-projects-hidden">
+            // Scroll-reveal with stagger
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((e, i) => {
+                    if (e.isIntersecting) {
+                        setTimeout(() => e.target.classList.add('visible'), i * 90);
+                        io.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.08 });
+            cards.forEach(c => io.observe(c));
+
+            // Heading reveal
+            const h = document.querySelector('#projects .hidden-heading');
+            if (h) new IntersectionObserver(([e]) => {
+                if (e.isIntersecting) e.target.classList.add('visible-heading');
+            }, { threshold: 0.3 }).observe(h);
+        })();
+        </script>
+
+<template id="more-projects-hidden">
             <!-- ============================================
      PROJECTS SECTION 2 (DUPLICATE)
      ============================================ -->
@@ -2809,9 +2793,9 @@
                                 <div class="tech-pill opacity-0 translate-y-4 transition-all duration-500"
                                     style="transition-delay: 300ms; --pill-accent: #A8B9CC;"><i
                                         class="ri-code-s-slash-line"></i> C</div>
-                                <div class="tech-pill opacity-0 translate-y-4 transition-all duration-500"
+                                <!-- <div class="tech-pill opacity-0 translate-y-4 transition-all duration-500"
                                     style="transition-delay: 350ms; --pill-accent: #00599C;"><i
-                                        class="ri-add-circle-line"></i> C++</div>
+                                        class="ri-add-circle-line"></i> C++</div> -->
                             </div>
                         </div>
 
@@ -2984,7 +2968,7 @@
                                 <div>
                                     <h4 class="text-lg font-bold text-white">Google Student Ambassador</h4>
                                     <div class="text-sm font-medium mb-1">
-                                        <span class="text-blue-400">Google</span> <span class="text-gray-500">•</span>
+                                        <span class="text-blue-400">Google</span> <span class="text-gray-500">�</span>
                                         <span class="text-gray-400">
                                             2025</span>
                                     </div>
@@ -3012,7 +2996,7 @@
                                     </h4>
                                     <div class="text-sm font-medium mb-1">
                                         <span class="text-purple-400">Aditya University</span> <span
-                                            class="text-gray-500">•</span> <span class="text-gray-400">2025</span>
+                                            class="text-gray-500">�</span> <span class="text-gray-400">2025</span>
                                     </div>
                                     <p class="text-gray-400 text-sm">Hosted a national-level youth festival
                                         after 9
@@ -3039,7 +3023,7 @@
                                     <h4 class="text-lg font-bold text-white">Led Power BI Workshop</h4>
                                     <div class="text-sm font-medium mb-1">
                                         <span class="text-yellow-400">Aditya University</span> <span
-                                            class="text-gray-500">•</span> <span class="text-gray-400">2024</span>
+                                            class="text-gray-500">�</span> <span class="text-gray-400">2024</span>
                                     </div>
                                     <p class="text-gray-400 text-sm">Conducted hands-on sessions on data
                                         visualization and analytics using Power BI.</p>
@@ -3063,7 +3047,7 @@
                                     <h4 class="text-lg font-bold text-white">NCC 'A' Certificate</h4>
                                     <div class="text-sm font-medium mb-1">
                                         <span class="text-green-400">National Cadet Corps</span> <span
-                                            class="text-gray-500">•</span> <span class="text-gray-400">2020</span>
+                                            class="text-gray-500">�</span> <span class="text-gray-400">2020</span>
                                     </div>
                                     <p class="text-gray-400 text-sm">Completed training emphasizing discipline,
                                 </div>
@@ -3330,7 +3314,7 @@
 
                     <!-- Left Column: Character -->
                     <div id="lottieCharacter"
-                        class="w-full max-w-[400px] h-[400px] opacity-0 transition-opacity duration-1000">
+                        class="w-full max-w-[400px] h-[400px] transition-opacity duration-1000">
                         <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
                             type="module"></script>
                         <dotlottie-player
@@ -3395,6 +3379,9 @@
                         const charContainer = document.getElementById('lottieCharacter');
                         const card = document.getElementById('contactCard');
                         let hasAnimated = false;
+
+                        // Ensure character is visible immediately if the animation hasn't triggered
+                        charContainer.style.opacity = '1';
 
                         // Check for reduced motion preference
                         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -3797,8 +3784,8 @@
                     const downloadLink = document.createElement('a');
 
                     // Set the download link properties - using a query parameter to force download
-                    downloadLink.href = 'resume.pdf?download=1';
-                    downloadLink.download = 'BONAM_TARUN_RESUME.pdf';
+                    downloadLink.href = 'B__Tarun.pdf?download=1';
+                    downloadLink.download = 'B__Tarun.pdf';
 
                     // Set additional attributes to force download
                     downloadLink.setAttribute('target', '_blank');
@@ -3902,8 +3889,8 @@
             oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
             oscillator.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.1);
 
-            gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+            gainNode.gain.setValueAtTime(0.6, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
 
             oscillator.start();
             oscillator.stop(audioCtx.currentTime + 0.1);
@@ -3952,8 +3939,8 @@
                     case 'download':
                         // Trigger download logic
                         const downloadLink = document.createElement('a');
-                        downloadLink.href = 'Bonam Tarun.pdf';
-                        downloadLink.download = 'BONAM_TARUN_RESUME.pdf';
+                        downloadLink.href = 'B__Tarun.pdf';
+                        downloadLink.download = 'B__Tarun.pdf';
                         downloadLink.target = '_blank';
                         document.body.appendChild(downloadLink);
                         downloadLink.click();
@@ -4253,7 +4240,7 @@
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const text = "I am motivated to learn, adapt quickly, and contribute effectively in collaborative technical environments.";
+            const text = "I build real products using AI tools, clean data, and just enough code to make it work.";
             const element = document.getElementById('typewriter-text');
             let index = 0;
 
